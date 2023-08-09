@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "postgres-homeworks"
+version = "0.1.0"
+description = ""
+authors = ["StepanShurmin <shurmin.sa@gmail.com>"]
+readme = "README.md"
+packages = [{include = "postgres_homeworks"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+black = {extras = ["d"], version = "^23.7.0"}
+
+
+[tool.poetry.group.dev.dependencies]
+psycopg2 = "^2.9.7"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
