@@ -2,12 +2,15 @@
 import psycopg2
 from csv import DictReader
 
+"""Пути к файлам с данными."""
 emp_data_csv = "north_data/employees_data.csv"
 cust_data_csv = "north_data/customers_data.csv"
 ord_data_csv = "north_data/orders_data.csv"
 
+"""Подключаемся к БД."""
 conn = psycopg2.connect(host="localhost", database="north", user="postgres", password="123123")
 
+"""Открываем на чтение файлы и загружаем данные из них в таблицы БД."""
 try:
     with conn:
         with conn.cursor() as cur:
@@ -48,6 +51,6 @@ try:
                         ),
                     )
 
-
+    """Закрываем соединение с БД."""
 finally:
     conn.close()
