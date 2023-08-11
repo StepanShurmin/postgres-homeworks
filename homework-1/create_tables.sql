@@ -19,8 +19,8 @@ CREATE TABLE IF NOT EXISTS customers
 CREATE TABLE IF NOT EXISTS orders
 (
 	order_id int PRIMARY KEY,
-	customer_id varchar(100) REFERENCES customers(customer_id),
-	employee_id int REFERENCES employees(employee_id),
+	customer_id varchar(100) REFERENCES customers(customer_id) ON DELETE CASCADE,
+	employee_id int REFERENCES employees(employee_id) ON DELETE CASCADE,
 	order_date date,
 	ship_city varchar(100) NOT NULL
 );
