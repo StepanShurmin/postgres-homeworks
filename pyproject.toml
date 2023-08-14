@@ -13,6 +13,7 @@ black = {extras = ["d"], version = "^23.7.0"}
 
 [tool.poetry.group.dev.dependencies]
 psycopg2 = "^2.9.7"
+python-dotenv = "^1.0.0"
 
 [build-system]
 requires = ["poetry-core"]

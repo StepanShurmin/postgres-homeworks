@@ -1,6 +1,12 @@
 """Скрипт для заполнения данными таблиц в БД Postgres."""
+import os
+
 import psycopg2
 from csv import DictReader
+
+from dotenv import load_dotenv
+
+load_dotenv()
 
 """Пути к файлам с данными."""
 emp_data_csv = "north_data/employees_data.csv"
@@ -8,7 +14,12 @@ cust_data_csv = "north_data/customers_data.csv"
 ord_data_csv = "north_data/orders_data.csv"
 
 """Подключаемся к БД."""
-conn = psycopg2.connect(host="localhost", database="north", user="postgres", password="123123")
+conn = psycopg2.connect(
+    host=os.getenv("DB_HOST"),
+    database=os.getenv("DB_NAME"),
+    user=os.getenv("DB_USER"),
+    password=os.getenv("DB_PASSWORD"),
+)
 
 """Открываем на чтение файлы и загружаем данные из них в таблицы БД."""
 try:
